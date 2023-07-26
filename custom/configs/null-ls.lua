@@ -9,14 +9,17 @@ local b = null_ls.builtins
 local sources = {
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css", "typescript", "typescriptreact", "javascript" } }, -- so prettier works only on these filetypes
+  -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  b.formatting.eslint_d,
+  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
   -- Lua
   b.formatting.stylua,
 
   -- cpp
   b.formatting.clang_format,
+
+  b.diagnostics.eslint,
 }
 
 local async_formatting = function(bufnr)
